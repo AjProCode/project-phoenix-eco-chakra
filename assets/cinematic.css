@@ -10,7 +10,7 @@ h1.split{font-size:clamp(2.6rem,5.6vw,5.2rem)}
 /* split text */
 .split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
 .split .w>span{display:inline-block;will-change:transform}
-.grad .w>span{background:linear-gradient(100deg,var(--green) 10%,var(--amber) 70%,var(--copper));-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad .w>span{color:var(--amber)}
 .grad{background:none!important}
 
 /* journey */

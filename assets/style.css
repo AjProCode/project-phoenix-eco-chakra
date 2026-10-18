@@ -36,7 +36,7 @@ sup a{color:var(--amber);text-decoration:none;font-size:.75em}
 .o2{width:520px;height:520px;right:-120px;bottom:-160px;background:radial-gradient(circle,#5a3f12,transparent 70%)}
 .eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:1.2rem}
 h1{font:400 clamp(2.8rem,6.4vw,5.8rem)/1.02 var(--serif);letter-spacing:-.03em}
-.grad{font-style:italic;background:linear-gradient(100deg,var(--green) 10%,var(--amber) 70%,var(--copper));-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad{font-style:italic;color:var(--amber)}
 .lede{margin:1.6rem 0 2.2rem;max-width:34rem;color:#c9c4b8;font-size:1.12rem}
 .lede b{color:var(--ink);font-weight:600}
 .cta{display:flex;gap:1rem;flex-wrap:wrap}
