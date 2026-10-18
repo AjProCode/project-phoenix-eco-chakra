@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Phoenix: Eco Chakra · Solar AI Waste Sorter · NCSC 2026</title>
+<meta name="description" content="Project Phoenix: Eco Chakra — a solar-powered, camera-guided waste sorter that routes every item into biodegradable, paper, dry or wet streams. NCSC 2026.">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/cinematic.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div id="companion" aria-hidden="true">
+  <svg class="peel" viewBox="-40 -40 80 80"><g class="peel-art">
+    <path d="M-26 10 C-20 -22 12 -28 26 -12 C10 -14 -6 -8 -14 18 Z" fill="#e3c84e" stroke="#8a7a1c" stroke-width="1.5"/>
+    <path d="M-14 18 C-20 26 -30 22 -26 10" fill="#6b5a18"/><path d="M-4 -12 C2 -6 4 2 0 12" stroke="#b49a2a" stroke-width="1.2" fill="none"/></g>
+    <g class="soil-art" opacity="0"><ellipse cx="0" cy="16" rx="26" ry="9" fill="#5a3f26"/><path d="M0 14 C0 2 0 -6 0 -14" stroke="#5fd08f" stroke-width="3" stroke-linecap="round"/><path d="M0 -6 C-14 -10 -18 -22 -6 -24 C-2 -18 0 -12 0 -6Z M0 -2 C14 -6 20 -18 8 -22 C2 -16 0 -8 0 -2Z" fill="#5fd08f"/></g>
+  </svg>
+  <span class="chip">Our banana peel</span>
+</div>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="nav">
+  <a class="brand" href="#top"><span class="brand-mark"></span><span class="brand-txt">Project Phoenix<em>Eco Chakra</em></span></a>
+  <nav>
+    <a href="#problem">Problem</a><a href="#journey">Journey</a><a href="#how">How</a><a href="#chakra">Chakra</a>
+    <a href="#model">3D</a><a href="#circuit">Circuit</a><a href="#study">Study</a><a href="#refs">Sources</a>
+  </nav>
+  <span class="pill">NCSC 2026</span>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="orb o1" data-depth="0.35"></div><div class="orb o2" data-depth="-0.2"></div>
+    <svg class="hero-chakra" data-depth="0.15" viewBox="0 0 400 400"><g fill="none" stroke="currentColor"><circle cx="200" cy="200" r="190" stroke-width=".6"/><circle cx="200" cy="200" r="150" stroke-width=".4" stroke-dasharray="2 6"/><g class="spokes"></g></g></svg>
+  </div>
+  <div class="hero-copy">
+    <p class="eyebrow hl">National Children's Science Congress · Science &amp; Innovation for Sustainability</p>
+    <p class="kicker hl">Project Phoenix</p>
+    <h1 class="split">Eco Chakra: every item finds <span class="grad">its right home.</span></h1>
+    <p class="lede hl">A solar-powered smart waste sorter that <b>sees</b> each item, <b>decides</b> whether it is biodegradable, paper, dry or wet waste, and <b>routes</b> it — feeding a compost chamber and a paper-pulping unit.</p>
+    <div class="cta hl">
+      <a class="btn primary" href="#journey">Start the journey</a>
+      <a class="btn ghost" href="#study">Our research question</a>
+    </div>
+    <ul class="chips hl"><li>4 waste streams</li><li>Arduino UNO Ek R4 WiFi</li><li>ESP32-CAM</li><li>10 W solar</li><li>Under ₹6,000</li></ul>
+  </div>
+
+  <div class="hero-stage hl" aria-label="Animation: an item drops in, the camera classifies it and the chute routes it to one of four compartments">
+    <svg id="sorter" viewBox="0 0 440 540">
+      <defs>
+        <linearGradient id="panel" x1="0" x2="1"><stop offset="0" stop-color="#1b3a6b"/><stop offset="1" stop-color="#0d2142"/></linearGradient>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232a26"/><stop offset="1" stop-color="#151a17"/></linearGradient>
+        <radialGradient id="flash"><stop offset="0" stop-color="#fff7d6" stop-opacity=".95"/><stop offset="1" stop-color="#fff7d6" stop-opacity="0"/></radialGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <g class="sun"><circle cx="380" cy="40" r="16" fill="#e8b44a" filter="url(#glow)"/></g>
+      <g class="rays" stroke="#e8b44a" stroke-width="1.5" stroke-dasharray="4 8" opacity=".6"><line x1="365" y1="55" x2="280" y2="88"/><line x1="370" y1="60" x2="320" y2="92"/><line x1="360" y1="50" x2="240" y2="86"/></g>
+      <polygon points="70,96 360,82 370,100 80,116" fill="url(#panel)" stroke="#3f6fb5"/>
+      <rect x="40" y="120" width="360" height="400" rx="14" fill="url(#body)" stroke="#33403a"/>
+      <path d="M160 120 h120 l-14 40 h-92z" fill="#2c3631" stroke="#46554d"/>
+      <rect x="208" y="128" width="24" height="14" rx="3" fill="#0e1311" stroke="#5a6b62"/>
+      <circle id="lens" cx="220" cy="135" r="4" fill="#3ad08a"/>
+      <circle id="flashc" cx="220" cy="175" r="60" fill="url(#flash)" opacity="0"/>
+      <polygon id="beam" points="214,142 226,142 260,200 180,200" fill="#3ad08a" opacity="0"/>
+      <rect x="160" y="196" width="8" height="8" rx="2" fill="#c0392b"/><rect x="272" y="196" width="8" height="8" rx="2" fill="#c0392b"/>
+      <line id="ir" x1="168" y1="200" x2="272" y2="200" stroke="#ff5a4e" stroke-width="1.5" stroke-dasharray="3 3" opacity=".55"/>
+      <path d="M140 186 h160 l-50 54 h-60z" fill="none" stroke="#6d7c73" stroke-width="2"/>
+      <g id="chute" style="transform-origin:220px 250px"><path d="M206 244 h28 l-4 70 h-20z" fill="#e8963a" stroke="#ffb661"/><circle cx="220" cy="250" r="6" fill="#ffd28f"/></g>
+      <g class="bins">
+        <rect x="56"  y="350" width="74" height="120" rx="8" fill="#1f3d27" stroke="#4caf6a"/><text x="93"  y="492" text-anchor="middle" class="bl">BIO</text>
+        <rect x="140" y="350" width="74" height="120" rx="8" fill="#1a2c45" stroke="#4a8fe0"/><text x="177" y="492" text-anchor="middle" class="bl">PAPER</text>
+        <rect x="226" y="350" width="74" height="120" rx="8" fill="#3d1f1f" stroke="#e0604a"/><text x="263" y="492" text-anchor="middle" class="bl">DRY</text>
+        <rect x="310" y="350" width="74" height="120" rx="8" fill="#123532" stroke="#26a69a"/><text x="347" y="492" text-anchor="middle" class="bl">WET</text>
+        <rect id="fill0" x="60"  y="466" width="66" height="0" rx="4" fill="#4caf6a" opacity=".55"/>
+        <rect id="fill1" x="144" y="466" width="66" height="0" rx="4" fill="#4a8fe0" opacity=".55"/>
+        <rect id="fill2" x="230" y="466" width="66" height="0" rx="4" fill="#e0604a" opacity=".55"/>
+        <rect id="fill3" x="314" y="466" width="66" height="0" rx="4" fill="#26a69a" opacity=".55"/>
+      </g>
+      <g id="item"></g>
+      <g id="tag" opacity="0"><rect x="300" y="150" width="120" height="30" rx="15" fill="#0f1512" stroke="#3ad08a"/><text id="tagtxt" x="360" y="170" text-anchor="middle" class="tagt">BIO · 0.94</text></g>
+    </svg>
+    <p class="stage-cap">Illustrative loop · <span id="caption">waiting for an item…</span></p>
+  </div>
+  <a class="scroll-hint" href="#stats" aria-label="Scroll"><span></span></a>
+</section>
+
+<!-- STATS -->
+<section id="stats" class="stats">
+  <div class="stat reveal"><b data-count="170339" data-format="in">0</b><span>tonnes of solid waste generated per day in India <sup><a href="#r1">[1]</a></sup></span><a class="src" href="https://cpcb.nic.in/uploads/MSW/MSW_AnnualReport_2021-22.pdf" target="_blank" rel="noopener">Source: CPCB 2024 ↗</a></div>
+  <div class="stat reveal"><b data-count="54" data-suffix="%">0</b><span>of it processed or treated <sup><a href="#r1">[1]</a></sup></span><a class="src" href="https://cpcb.nic.in/uploads/MSW/MSW_AnnualReport_2021-22.pdf" target="_blank" rel="noopener">Source: CPCB 2024 ↗</a></div>
+  <div class="stat reveal"><b data-count="22" data-suffix="%">0</b><span>unaccounted for — the “gap” <sup><a href="#r1">[1]</a></sup></span><a class="src" href="https://cpcb.nic.in/uploads/MSW/MSW_AnnualReport_2021-22.pdf" target="_blank" rel="noopener">Source: CPCB 2024 ↗</a></div>
+  <div class="stat reveal"><b data-count="97" data-suffix="%">0</b><span>accuracy reached by a benchmark smart-bin classifier <sup><a href="#r6">[6]</a></sup></span><a class="src" href="https://arxiv.org/abs/2006.05873" target="_blank" rel="noopener">Source: White et al. 2020 ↗</a></div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="section curtain">
+  <div class="head"><p class="eyebrow reveal">Chapter 1 · Where our peel begins</p><h2 class="split">The law asks for separate streams. Homes still give one.</h2>
+  <p class="sub reveal">India's Solid Waste Management Rules, 2016 (Rule 4) require every waste generator to segregate and store waste in three separate streams — biodegradable, non-biodegradable and domestic hazardous — before handing it over <sup><a href="#r2">[2]</a></sup>. Our sorter goes further, splitting non-biodegradable waste into paper, dry and wet. Studies show the household habit has not caught up.</p></div>
+  <div class="cards">
+    <article class="card reveal tilt"><div class="ring" style="--p:93"><span data-count="93" data-suffix="%">0</span></div><h3>Delhi households didn't segregate</h3><p>In a large household survey, about 93% said they did not separate waste at home; ~58% said collectors mix it anyway, so the effort felt pointless.</p><cite><a class="src" href="https://journals.sagepub.com/doi/10.1177/2514848620914219" target="_blank" rel="noopener">Source: Luthra 2021 ↗</a> <a href="#r3">[3]</a></cite></article>
+    <article class="card reveal tilt"><div class="ring amber" style="--p:62"><span data-count="62" data-suffix="%">0</span></div><h3>Varanasi residents found it confusing</h3><p>An audit of 4,754 residents across 8 wards found only 24% segregated at source, and 62% were unsure what goes where.</p><cite><a class="src" href="https://doi.org/10.17577/ijertv9is050541" target="_blank" rel="noopener">Source: Manuja et al. 2020 ↗</a> <a href="#r4">[4]</a></cite></article>
+    <article class="card reveal tilt"><div class="ring blue" style="--p:70"><span data-count="70" data-prefix="&gt;" data-suffix="%">0</span></div><h3>Lucknow's reported source segregation</h3><p>The city reports source-segregation levels above 70% — our study tests what that looks like inside real homes in one neighbourhood.</p><cite><a class="src" href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2216806" target="_blank" rel="noopener">Source: PIB 21 Jan 2026 ↗</a> <a href="#r5">[5]</a></cite></article>
+  </div>
+  <blockquote class="pull split-soft">If people find sorting <em>confusing</em> and <em>pointless</em>, can a machine that sorts for them close the gap?</blockquote>
+</section>
+
+<!-- JOURNEY: scroll-driven 3D fly-through -->
+<section id="journey" class="journey">
+  <div class="j-stage">
+    <div id="fly" class="fly" aria-label="3D fly-through of the sorter, driven by scroll"></div>
+    <div class="j-vignette" aria-hidden="true"></div>
+    <div class="j-hud">
+      <p class="eyebrow">Chapters 2–5 · Into the machine</p>
+      <div class="j-caps">
+        <div class="cap" data-i="0"><b>Meet Eco Chakra.</b><span>A cabinet of layers: solar lid, camera hood, sorting chute, four compartments and two processing units.</span></div>
+        <div class="cap" data-i="1"><b>Drop.</b><span>An item falls into the intake. An IR beam notices and wakes the system.</span></div>
+        <div class="cap" data-i="2"><b>See.</b><span>Inside the lit hood, the ESP32-CAM takes one photo and sends it over Wi-Fi to the classifier.</span></div>
+        <div class="cap" data-i="3"><b>Decide.</b><span>The model replies with a label and confidence. The Arduino swings the servo chute.</span></div>
+        <div class="cap" data-i="4"><b>A · Biodegradable</b><span>Food and garden waste — on to the fan-aerated compost chamber.</span></div>
+        <div class="cap" data-i="5"><b>B · Paper</b><span>Paper and card — on to the pump-fed pulping tub.</span></div>
+        <div class="cap" data-i="6"><b>C · Dry waste</b><span>Plastics, wrappers, metal, glass — kept clean for recyclers.</span></div>
+        <div class="cap" data-i="7"><b>D · Wet waste</b><span>Soiled, oily, non-compostable wet items — kept away from the clean streams.</span></div>
+        <div class="cap" data-i="8"><b>Every layer, revealed.</b><span>Four fill sensors, one brain, one 10 W panel.</span></div>
+      </div>
+      <div class="j-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW: pinned horizontal -->
+<section id="how" class="how">
+  <div class="how-pin">
+    <div class="how-head"><p class="eyebrow">Chapter 6 · The six steps it took</p><h2 class="split">Five seconds, six steps.</h2></div>
+    <ol class="track">
+      <li class="step"><i>01</i><div class="ic">◉</div><h3>Drop</h3><p>An IR beam across the intake detects the item and wakes the system.</p></li>
+      <li class="step"><i>02</i><div class="ic">◎</div><h3>Capture</h3><p>The ESP32-CAM in the lit hood takes a photo on the Arduino's “CAPTURE” command.</p></li>
+      <li class="step"><i>03</i><div class="ic">✦</div><h3>Classify</h3><p>A Teachable Machine model on a laptop replies over Wi-Fi: bio, paper, dry or wet + confidence.</p></li>
+      <li class="step"><i>04</i><div class="ic">↻</div><h3>Route</h3><p>The servo chute swings to 25°, 70°, 115° or 160°. Unsure (&lt;60%) → dry compartment for a manual check.</p></li>
+      <li class="step"><i>05</i><div class="ic">❖</div><h3>Process</h3><p>Biodegradable feeds a fan-aerated compost chamber; paper goes to a pump-fed pulping tub; dry and wet wait for collection.</p></li>
+      <li class="step"><i>06</i><div class="ic">▤</div><h3>Log</h3><p>Every decision, photo and compost reading is logged — data for our study.</p></li>
+    </ol>
+    <div class="how-bar"><span></span></div>
+  </div>
+</section>
+
+<!-- CHAKRA -->
+<section id="chakra" class="chakra">
+  <div class="ch-pin">
+    <div class="ch-copy">
+      <p class="eyebrow">Chapter 7 · Rising again</p>
+      <h2 class="split">Waste that rises again.</h2>
+      <p class="sub">Like a phoenix from ash, two of the four streams are turned back into something useful — the loop at the heart of the project's name.</p>
+      <ol class="ch-list">
+        <li data-n="0"><b>Compost</b> biodegradable waste breaks down in the aerated chamber</li>
+        <li data-n="1"><b>Soil</b> mature compost returns nutrients to plants</li>
+        <li data-n="2"><b>Paper</b> paper waste is pulped into fibre for new sheets</li>
+        <li data-n="3"><b>Reuse</b> clean dry waste goes to recyclers instead of a dump</li>
+      </ol>
+    </div>
+    <div class="ch-wheel">
+      <svg id="wheel" viewBox="-260 -260 520 520" aria-label="Rotating chakra: compost, soil, paper, reuse">
+        <defs><radialGradient id="core"><stop offset="0" stop-color="#e8963a" stop-opacity=".55"/><stop offset=".6" stop-color="#e8b44a" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
+        <circle r="250" fill="url(#core)"/>
+        <g id="ring-outer" fill="none" stroke="#3a4a41"><circle r="215" stroke-width="1"/><circle r="200" stroke-dasharray="1 7" stroke="#5fd08f" stroke-width="2"/></g>
+        <g id="spokes24" stroke="#e8b44a" stroke-opacity=".35"></g>
+        <circle id="ring-arc" r="215" fill="none" stroke="url(#arcg)" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90)"/>
+        <linearGradient id="arcg"><stop offset="0" stop-color="#5fd08f"/><stop offset="1" stop-color="#e8b44a"/></linearGradient>
+        <g id="phoenix">
+          <circle r="92" fill="none" stroke="#e8b44a" stroke-width="1.5"/>
+          <circle r="60" fill="#0f1512" stroke="#5fd08f" stroke-opacity=".5"/>
+          <path d="M0 38 C-30 18 -30 -22 0 -42 C30 -22 30 18 0 38Z" fill="#5fd08f" fill-opacity=".16" stroke="#5fd08f" stroke-width="2"/>
+          <path d="M0 34 V-30 M0 -2 l-12 -12 M0 12 l12 -12" stroke="#5fd08f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <circle r="5" fill="#e8b44a"/>
+        </g>
+        <g id="orbit">
+          <g class="node" transform="rotate(0) translate(0,-215)"><g class="nrot"><circle r="34" fill="#13261b" stroke="#5fd08f" stroke-width="2"/><text y="5">Compost</text></g></g>
+          <g class="node" transform="rotate(90) translate(0,-215)"><g class="nrot"><circle r="34" fill="#241d10" stroke="#a1887f" stroke-width="2"/><text y="5">Soil</text></g></g>
+          <g class="node" transform="rotate(180) translate(0,-215)"><g class="nrot"><circle r="34" fill="#101c2c" stroke="#5b9be6" stroke-width="2"/><text y="5">Paper</text></g></g>
+          <g class="node" transform="rotate(270) translate(0,-215)"><g class="nrot"><circle r="34" fill="#2a1814" stroke="#e8b44a" stroke-width="2"/><text y="5">Reuse</text></g></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 3D interactive -->
+<section id="model" class="section curtain">
+  <div class="head"><p class="eyebrow reveal">Chapter 8 · The machine it passed through</p><h2 class="split">Built in layers.</h2><p class="sub reveal">Drag to orbit. Slide to explode. Hover a part to find it. (CadQuery model, rendered live with three.js.)</p></div>
+  <div class="viewer reveal">
+    <div id="three" class="three"><noscript>Enable JavaScript to view the 3D model.</noscript></div>
+    <aside class="parts">
+      <label class="slider">Explode <input id="explode" type="range" min="0" max="1" step="0.01" value="0"></label>
+      <label class="toggle"><input id="shell" type="checkbox" checked> Show cabinet</label>
+      <ul id="partlist"></ul>
+    </aside>
+  </div>
+  <div class="tabs reveal">
+    <div class="tabbar" role="tablist"><button class="on" data-img="assets/render_isometric.png">Isometric</button><button data-img="assets/render_cutaway.png">Cutaway</button><button data-img="assets/render_exploded.png">Exploded</button></div>
+    <figure class="render"><img id="renderimg" src="assets/render_isometric.png" alt="Labelled render of the sorter with four compartments" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- CIRCUIT -->
+<section id="circuit" class="section dark curtain">
+  <div class="head"><p class="eyebrow reveal">Chapter 9 · What powered its trip</p><h2 class="split">Sunlight in. Decisions out.</h2></div>
+  <div class="circ reveal">
+    <svg id="flowsvg" viewBox="0 0 900 360" aria-label="Simplified power and signal flow">
+      <g class="wires">
+        <path class="w pw" d="M110 180 H230"/><path class="w pw" d="M330 180 H420"/><path class="w pw" d="M330 180 V300 H560"/><path class="w pw" d="M330 180 V70 H420"/>
+        <path class="w sg" d="M520 70 C600 70 600 180 640 180"/><path class="w sg" d="M520 180 H640"/>
+        <path class="w sg" d="M760 180 C800 180 800 80 830 80"/><path class="w sg" d="M760 180 H830"/><path class="w sg" d="M760 180 C800 180 800 280 830 280"/>
+        <path class="w pw" d="M660 300 H700 V230"/>
+      </g>
+      <g class="nodes">
+        <g><rect x="20" y="145" width="90" height="70" rx="12"/><text x="65" y="176">SOLAR</text><text x="65" y="194" class="s">10 W</text></g>
+        <g><rect x="230" y="145" width="100" height="70" rx="12"/><text x="280" y="176">CHARGE</text><text x="280" y="194" class="s">+ 12V 1.3Ah</text></g>
+        <g><rect x="420" y="40" width="100" height="60" rx="12"/><text x="470" y="66">BUCK</text><text x="470" y="84" class="s">5.5 V</text></g>
+        <g><rect x="420" y="150" width="100" height="60" rx="12" class="cam"/><text x="470" y="176">ESP32</text><text x="470" y="194" class="s">CAM</text></g>
+        <g><rect x="640" y="140" width="120" height="80" rx="14" class="brain"/><text x="700" y="176">UNO Ek</text><text x="700" y="194" class="s">R4 WiFi</text></g>
+        <g><rect x="560" y="275" width="100" height="50" rx="12"/><text x="610" y="304" class="s">VIN 12 V</text></g>
+        <g><rect x="830" y="55" width="60" height="50" rx="10"/><text x="860" y="85" class="s">Servo</text></g>
+        <g><rect x="830" y="155" width="60" height="50" rx="10"/><text x="860" y="185" class="s">4× fill</text></g>
+        <g><rect x="830" y="255" width="60" height="50" rx="10"/><text x="860" y="285" class="s">Relays</text></g>
+      </g>
+    </svg>
+    <p class="legend"><span class="lg pw"></span>Power <span class="lg sg"></span>Signal / data</p>
+  </div>
+  <figure class="schem reveal"><a href="assets/smartbin_schematic.png" target="_blank" rel="noopener"><img src="assets/smartbin_schematic.png" alt="Full wiring schematic with Arduino pin numbers" loading="lazy"></a><figcaption>Full wiring schematic with pin numbers — click to open full size.</figcaption></figure>
+  <div class="pins">
+    <div class="reveal"><b>D2</b>IR drop sensor</div><div class="reveal"><b>D3</b>Chute servo (4 positions)</div><div class="reveal"><b>D0/D1</b>UART ↔ ESP32-CAM</div><div class="reveal"><b>D4 · A0</b>Compost temp · moisture</div>
+    <div class="reveal"><b>D8–D13</b>Fill: bio · paper · dry</div><div class="reveal"><b>D5/D6</b>Fill: wet</div><div class="reveal"><b>A1</b>Fan relay</div><div class="reveal"><b>A2</b>Pump relay</div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section id="specs" class="section curtain">
+  <div class="head"><p class="eyebrow reveal">Chapter 10 · What it cost</p><h2 class="split">Frugal by design.</h2></div>
+  <div class="specs">
+    <div class="spec big reveal tilt"><small>Total bill of materials</small><b>₹<span data-count="5910" data-format="in">0</span></b><p>Approximate Indian retail prices, Oct 2026 — under the ₹6,000 budget.</p></div>
+    <div class="spec reveal tilt"><small>Brain</small><b>UNO Ek R4 WiFi</b><p>Official Made-in-India Arduino, 12×8 LED matrix shows status.</p></div>
+    <div class="spec reveal tilt"><small>Eyes</small><b>ESP32-CAM</b><p>OV2640 camera, sends JPEG over Wi-Fi.</p></div>
+    <div class="spec reveal tilt"><small>Energy</small><b>10 W solar</b><p>PWM controller + 12 V 1.3 Ah battery.</p></div>
+    <div class="spec reveal tilt"><small>Streams</small><b>4 compartments</b><p>Biodegradable · Paper · Dry · Wet, each with its own HC-SR04 fill sensor.</p></div>
+    <div class="spec reveal tilt"><small>Code</small><b>Non-blocking</b><p>millis() timers — sorting never pauses while the fan or pump runs.</p></div>
+  </div>
+</section>
+
+<!-- STUDY -->
+<section id="study" class="section dark curtain">
+  <div class="head"><p class="eyebrow reveal">Chapter 11 · Proving it works</p><h2 class="split">Will people actually use it?</h2></div>
+  <div class="study">
+    <div class="hyp reveal"><small>Hypothesis</small><p>Households in our neighbourhood show <b>low willingness</b> to segregate waste themselves, but will accept automated sorting.</p></div>
+    <ol class="timeline">
+      <li class="reveal"><b>Survey</b><span>60 households · Vibhav Khand, Gomti Nagar, Lucknow — current segregation habits, reasons, willingness.</span></li>
+      <li class="reveal"><b>Build &amp; train</b><span>Photograph local waste, train the 4-class model (biodegradable, paper, dry, wet), measure its accuracy on items it has not seen.</span></li>
+      <li class="reveal"><b>Trial</b><span>3 homes · 1 month with the sorter — log every item, misclassification and compost reading.</span></li>
+      <li class="reveal"><b>Analyse</b><span>Compare survey answers with trial logs; accept or reject the hypothesis.</span></li>
+    </ol>
+  </div>
+  <p class="note reveal">Results will be added here after the survey and trial. No outcome data is shown yet.</p>
+</section>
+
+<!-- LIFE -->
+<section class="section life curtain">
+  <div class="lifegrid">
+    <div><p class="eyebrow reveal">Chapter 12 · Why one peel matters</p><h2 class="split">Small machine. Big alignment.</h2></div>
+    <div class="badge reveal tilt"><b>Mission LiFE</b><p>India's Lifestyle for Environment movement — making mindful use and disposal an everyday habit <sup><a href="#r7">[7]</a></sup>.</p></div>
+    <div class="badge reveal tilt"><b>SDG 12</b><p>Responsible consumption &amp; production — target 12.5: substantially reduce waste generation through prevention, reduction, recycling and reuse <sup><a href="#r8">[8]</a></sup>.</p></div>
+  </div>
+</section>
+
+<!-- REFS -->
+<section id="refs" class="section refs">
+  <div class="head"><p class="eyebrow reveal">References</p><h2 class="split">Sources &amp; references</h2><p class="sub reveal">Every statistic on this page comes from one of these documents. Click to verify.</p></div>
+  <ol class="reflist reveal">
+    <li id="r1">Central Pollution Control Board (2024). <i>Annual Report 2021–22 on Implementation of Solid Waste Management Rules, 2016</i> (released 22 Aug 2024). 1,70,339 TPD generated; 91,511 TPD (54%) processed; 37,373 TPD (~22%) gap. <a href="https://cpcb.nic.in/uploads/MSW/MSW_AnnualReport_2021-22.pdf" target="_blank" rel="noopener">cpcb.nic.in</a></li>
+    <li id="r2">Ministry of Environment, Forest and Climate Change (2016). <i>Solid Waste Management Rules, 2016</i>, Rule 4 — Duties of waste generators. <a href="https://cpcb.nic.in/uploads/MSW/SWM_2016.pdf" target="_blank" rel="noopener">cpcb.nic.in</a></li>
+    <li id="r3">Luthra, A. (2021). Housewives and maids: The labor of household recycling in urban India. <i>Environment and Planning E: Nature and Space</i>. <a href="https://journals.sagepub.com/doi/10.1177/2514848620914219" target="_blank" rel="noopener">doi:10.1177/2514848620914219</a></li>
+    <li id="r4">Manuja, S. et al. (2020). An Audit of Municipal Solid Waste Management System in Selected Wards of Varanasi – A Case Study. <i>IJERT</i> 9(5). <a href="https://doi.org/10.17577/ijertv9is050541" target="_blank" rel="noopener">doi:10.17577/IJERTV9IS050541</a></li>
+    <li id="r5">Press Information Bureau (21 Jan 2026). Lucknow achieved 100% scientific processing of municipal solid waste under SBM-Urban. <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2216806" target="_blank" rel="noopener">pib.gov.in</a></li>
+    <li id="r6">White, G., Cabrera, C., Palade, A., Li, F., Clarke, S. (2020). WasteNet: Waste Classification at the Edge for Smart Bins. <a href="https://arxiv.org/abs/2006.05873" target="_blank" rel="noopener">arXiv:2006.05873</a></li>
+    <li id="r7">Mission LiFE, Ministry of Environment, Forest and Climate Change, Govt. of India. <a href="https://missionlife-moefcc.nic.in/" target="_blank" rel="noopener">missionlife-moefcc.nic.in</a></li>
+    <li id="r8">United Nations. Sustainable Development Goal 12. <a href="https://sdgs.un.org/goals/goal12" target="_blank" rel="noopener">sdgs.un.org</a></li>
+  </ol>
+</section>
+</main>
+
+<footer class="foot">
+  <div><span class="brand"><span class="brand-mark"></span><span class="brand-txt">Project Phoenix<em>Eco Chakra</em></span></span><p>Team [Name], [School] · National Children's Science Congress 2026</p></div>
+  <p class="tiny">Prototype design for a student research project. Prices approximate. Animations are illustrative, not measured results.</p>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/vendor/OrbitControls.js"></script>
+<script src="assets/model-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
