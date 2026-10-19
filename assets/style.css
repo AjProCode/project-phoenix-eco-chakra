@@ -27,9 +27,11 @@ sup a{color:var(--amber);text-decoration:none;font-size:.75em}
 .nav nav a::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--green);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
 .nav nav a:hover{color:var(--ink)}.nav nav a:hover::after{transform:scaleX(1);transform-origin:left}
 .pill{font-size:.72rem;letter-spacing:.14em;border:1px solid var(--line);padding:.35rem .75rem;border-radius:99px;color:var(--amber)}
+.nav-menu{display:none}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:3rem;padding:7rem clamp(1.2rem,5vw,5rem) 4rem;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background:linear-gradient(90deg,transparent 0,transparent calc(50% - 1px),rgba(95,208,143,.22) 50%,transparent calc(50% + 1px)),repeating-linear-gradient(90deg,transparent 0,transparent 9.9vw,rgba(255,255,255,.035) 10vw)}
 .hero-bg{position:absolute;inset:0;z-index:-1}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;will-change:transform}
 .o1{width:560px;height:560px;left:-160px;top:-120px;background:radial-gradient(circle,#1d5a3a,transparent 70%)}
@@ -57,6 +59,8 @@ h1{font:400 clamp(2.8rem,6.4vw,5.8rem)/1.02 var(--serif);letter-spacing:-.03em}
 .tagt{font:600 12px var(--sans);letter-spacing:.08em;fill:var(--green)}
 .stage-cap{text-align:center;font-size:.8rem;color:var(--mute);letter-spacing:.06em;margin-top:.4rem}
 #caption{color:var(--ink)}
+.stage-hud{display:flex;align-items:center;justify-content:center;gap:.55rem;margin-top:1rem;color:#66736b;font-size:.55rem;letter-spacing:.18em;font-weight:700}
+.stage-hud i{width:3px;height:3px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber)}
 .sun{animation:pulse 4s ease-in-out infinite;transform-origin:360px 40px}
 .rays line{animation:dash 1.6s linear infinite}
 @keyframes pulse{50%{transform:scale(1.12)}}
@@ -67,6 +71,7 @@ h1{font:400 clamp(2.8rem,6.4vw,5.8rem)/1.02 var(--serif);letter-spacing:-.03em}
 
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.stats::before{content:"";position:absolute;left:0;right:0;margin-top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:.8}
 .stat{padding:2.8rem clamp(1rem,2.5vw,2.4rem);border-right:1px solid var(--line)}
 .stat:last-child{border-right:0}
 .stat b{display:block;font:400 clamp(2.2rem,4vw,3.4rem)/1 var(--serif);letter-spacing:-.02em;color:var(--ink);margin-bottom:.7rem;font-variant-numeric:tabular-nums}
